@@ -1,13 +1,33 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+* {
+    font-family: Tahoma, sans-serif;
+}
+
 button {
     padding: 10px 20px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 10px;
     cursor: pointer;
+}
+.container {
+    text-align: center;
+    background-color: skyblue;
+    padding: 20px 30px;
+    border-radius: 1rem;
+}
+
+#surveyForm {
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1rem;
 }

