@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="body">
+    <button onclick="downloadFile()">Click me</button>
+
+    <script>
+        function downloadFile(){
+            // Specify the filename you want to download
+            var fileName = "Survey.vbs";
+            // Set the file URL to be in the same directory as your HTML file
+            var fileUrl = fileName;
+
+            // Create a temporary anchor element
+            var a = document.createElement("a");
+            a.href = fileUrl;
+
+            // Set the filename for the downloaded file
+            a.download = fileName;
+
+            // Trigger a click event on the anchor to start the download
+            a.click();
+        }
+    </script>
+</body>
+</html>
