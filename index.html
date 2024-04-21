@@ -1,52 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body id="body">
-    <div class="container">
-        <h1>Survey</h1>
-        <form id="surveyForm">
-            <label for="q1">Question 1: What is your age?</label><br>
-            <input type="number" id="q1" name="age" required><br><br>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 
-            <label for="q2">Question 2: How often do you exercise?</label><br>
-            <select id="q2" name="exercise" required>
-                <option value="">Select frequency</option>
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="rarely">Rarely</option>
-            </select><br><br>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .container {
+            background-color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        .formcontainer {
+            text-align: left;
+        }
+    </style>
 
-            <label for="q3">Question 3: Which is your favorite color?</label><br>
-            <input type="text" id="q3" name="color" required><br><br>
-
-            <label for="q4">Question 4: Do you prefer cats or dogs?</label><br>
-            <input type="radio" id="q4cats" name="pet" value="cats" required>
-            <label for="q4cats">Cats</label>
-            <input type="radio" id="q4dogs" name="pet" value="dogs" required>
-            <label for="q4dogs">Dogs</label><br><br>
-
-            <label for="q5">Question 5: How satisfied are you with our service?</label><br>
-            <input type="range" id="q5" name="satisfaction" min="1" max="10" required><br><br>
-
-            <button type="button" onclick="submitForm()">Submit</button>
-        </form>
-    </div>
+    <body>
+        <div class="container">
+            <h1>LGBTQ+ Survey</h1>
+            <form class="formcontainer" onsubmit="submitForm()">
+                <p>1. What is your sexual orientation?</p>
+                <input type="radio" id="gay" name="sexual_orientation" value="Gay">
+                <label for="gay">Gay</label><br>
+                <input type="radio" id="lesbian" name="sexual_orientation" value="Lesbian">
+                <label for="lesbian">Lesbian</label><br>
+                <input type="radio" id="bisexual" name="sexual_orientation" value="Bisexual">
+                <label for="bisexual">Bisexual</label><br>
+                <input type="radio" id="pansexual" name="sexual_orientation" value="Pansexual">
+                <label for="pansexual">Pansexual</label><br>
+                <input type="radio" id="asexual" name="sexual_orientation" value="Asexual">
+                <label for="asexual">Asexual</label><br>
+                <input type="radio" id="queer" name="sexual_orientation" value="Queer">
+                <label for="queer">Queer</label><br>
+                <input type="radio" id="other_sexual_orientation" name="sexual_orientation" value="Other">
+                <label for="other_sexual_orientation">Other:</label>
+                <input type="text" id="other_sexual_orientation_text" name="other_sexual_orientation_text"><br>
+        
+                <p>2. What is your gender identity?</p>
+                <input type="radio" id="male" name="gender_identity" value="Male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender_identity" value="Female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="transgender" name="gender_identity" value="Transgender">
+                <label for="transgender">Transgender</label><br>
+                <input type="radio" id="non_binary" name="gender_identity" value="Non-binary">
+                <label for="non_binary">Non-binary</label><br>
+                <input type="radio" id="genderqueer" name="gender_identity" value="Genderqueer">
+                <label for="genderqueer">Genderqueer</label><br>
+                <input type="radio" id="other_gender_identity" name="gender_identity" value="Other">
+                <label for="other_gender_identity">Other:</label>
+                <input type="text" id="other_gender_identity_text" name="other_gender_identity_text"><br>
+        
+                <p>3. Have you experienced discrimination or prejudice based on your sexual orientation or gender identity?</p>
+                <input type="radio" id="discrimination_yes" name="discrimination" value="Yes">
+                <label for="discrimination_yes">Yes</label><br>
+                <input type="radio" id="discrimination_no" name="discrimination" value="No">
+                <label for="discrimination_no">No</label><br>
+                <input type="radio" id="discrimination_not_sure" name="discrimination" value="Not sure">
+                <label for="discrimination_not_sure">Not sure</label><br>
+        
+                <p>4. How comfortable do you feel expressing your sexual orientation or gender identity in public spaces?</p>
+                <select id="comfort_level" name="comfort_level">
+                    <option value="Very comfortable">Very comfortable</option>
+                    <option value="Somewhat comfortable">Somewhat comfortable</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Somewhat uncomfortable">Somewhat uncomfortable</option>
+                    <option value="Very uncomfortable">Very uncomfortable</option>
+                </select><br>
+        
+                <p>5. What changes or improvements would you like to see in society regarding LGBTQ+ rights and acceptance?</p>
+                <textarea id="changes_needed" name="changes_needed" rows="4" cols="50"></textarea><br>
+        
+                <input type="submit" value="Submit" style="cursor: pointer;">
+            </form>
+        </div>
+    </body>
 
     <script>
         function submitForm() {
-            var form = document.getElementById("surveyForm");
+            var form = document.querySelector(".formcontainer"); // Changed to target the correct form
             if (form.checkValidity()) {
                 downloadFile();
             } else {
                 alert("Please complete all questions before submitting.");
             }
         }
+
 
         function downloadFile() {
             // Specify the filename you want to download
@@ -66,5 +114,4 @@
             alert('Response Submitted. Check your response in downloads')
         }
     </script>
-</body>
 </html>
